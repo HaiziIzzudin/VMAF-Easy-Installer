@@ -61,7 +61,7 @@ else { # IF PLATFORM = LINUX
         curl https://sh.rustup.rs -sSf | sh;             # INSTALL RUSTUP CARGO
         touch ~/.vmafav1softwareidentifier;              # SOFTWARE IDENTIFIER (DO NOT DELETE)
     }
-    Set-Location ~/; source ~/.bashrc;                   # CD TO HOME & REFRESH ENVIRONMENT VARIABLE
+    bash -c "$(curl -fsSL https://github.com/HaiziIzzudin/AV1-VMAF-Easy-Installer/raw/main/reload-bashrc.sh)"; # REFRESH ENVIRONMENT VARIABLE
     
     sudo apt update; sudo apt upgrade -y; sudo apt install ffmpeg gcc cmake yasm clang-11 -y; rustup update; cargo update;
     
@@ -70,6 +70,7 @@ else { # IF PLATFORM = LINUX
     cargo install ab-av1;                                # INSTALL AB-AV1 VIA CARGO
     
     # PREPARATION OF SVTAV1ENCAPP BUILDER
+    Set-Location ~/;                                                    # CHANGE LOCATION TO HOME
     git clone https://gitlab.com/AOMediaCodec/SVT-AV1.git ;             # CLONE SVTAV1 REPO
     ~/SVT-AV1/Build/linux/build.sh release;                             # START BUILD SVTAV1ENCAPP
     Move-Item -Path ~/SVT-AV1/Bin/Release/SvtAv1EncApp -Destination ./; # TAKEOUT SVTAV1ENCAPP TO PATH/HOME 
@@ -78,7 +79,7 @@ else { # IF PLATFORM = LINUX
     Clear-Host; Write-Host "FINAL STEP!`n`n1. Copy this command NOW!!!: "'[export PATH=~/:$PATH]'" (without square bracket)`n2. A .bashrc file will be open after this. Navigate to bottom (using arrow keys), and PASTE to a new line.`n3. [CTRL + X], then [CTRL + Y], then [ENTER].`n`nUnderstood?"; Pause;
 
     nano ./.bashrc;                                                     # USER TO EDIT BASHRC, AND SAVE IT
-    Set-Location ~/; source ~/.bashrc;                                  # CD TO HOME & REFRESH ENVIRONMENT VARIABLE
+    bash -c "$(curl -fsSL https://github.com/HaiziIzzudin/AV1-VMAF-Easy-Installer/raw/main/reload-bashrc.sh)"; # REFRESH ENVIRONMENT VARIABLE
     
     Read-Host -Prompt "`n`nINSTALLATION DONE! Launch by typing [ab-av1] directly.`nFor more info on how to use, do refer to this doc [https://alexheretic.github.io/posts/ab-av1/].`n`nThank you for using my program! Your support is very valuable for me.`n`nPress [ENTER] to exit installer...";
 }
