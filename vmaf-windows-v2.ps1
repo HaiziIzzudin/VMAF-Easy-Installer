@@ -41,16 +41,18 @@ else {
     Write-Host "PREREQUISITES IS COMPLETE!";
     Pause;
     
-    Set-Location ~\AppData\Local\Microsoft\WindowsApps;                                                       # PATHING LOCATIONS
+    Set-Location ~\AppData\Local\Microsoft\WindowsApps; # PATHING LOCATIONS
 
     # PREPARATION OF SVTAV1ENCAPP BUILDER
-    git clone https://gitlab.com/AOMediaCodec/SVT-AV1.git ;                                                   # CLONE SVTAV1 REPO
-    ~\AppData\Local\Microsoft\WindowsApps\SVT-AV1\Build\windows\build.bat 2022                                # START BUILD SVTAV1ENCAPP
-    Move-Item -Path ~\AppData\Local\Microsoft\WindowsApps\SVT-AV1\Bin\Debug\SvtAv1EncApp.exe -Destination .\; # TAKEOUT SVTAV1ENCAPP.EXE TO PATH 
-    Move-Item -Path ~\AppData\Local\Microsoft\WindowsApps\SVT-AV1\Bin\Debug\SvtAv1EncApp.dll -Destination .\; # TAKEOUT SVTAV1ENCAPP.DLL TO PATH
-    Remove-Item "~\AppData\Local\Microsoft\WindowsApps\SVT-AV1" -Recurse -Force;                              # REMOVE SVT-AV1 GIT CLONE
+    git clone https://gitlab.com/AOMediaCodec/SVT-AV1.git ;                                                     # CLONE SVTAV1 REPO
+    ~\AppData\Local\Microsoft\WindowsApps\SVT-AV1\Build\windows\build.bat 2022 release                          # START BUILD SVTAV1ENCAPP
+    Move-Item -Path ~\AppData\Local\Microsoft\WindowsApps\SVT-AV1\Bin\Release\SvtAv1EncApp.exe -Destination .\; # TAKEOUT SVTAV1ENCAPP.EXE TO PATH 
+    Move-Item -Path ~\AppData\Local\Microsoft\WindowsApps\SVT-AV1\Bin\Release\SvtAv1Enc.dll -Destination .\;    # TAKEOUT SVTAV1ENC.DLL TO PATH
+    Move-Item -Path ~\AppData\Local\Microsoft\WindowsApps\SVT-AV1\Bin\Release\SvtAv1Enc.exp -Destination .\;    # TAKEOUT SVTAV1ENC.EXP TO PATH
+    Move-Item -Path ~\AppData\Local\Microsoft\WindowsApps\SVT-AV1\Bin\Release\SvtAv1Enc.lib -Destination .\;    # TAKEOUT SVTAV1ENC.LIB TO PATH
+    Remove-Item "~\AppData\Local\Microsoft\WindowsApps\SVT-AV1" -Recurse -Force;                                # REMOVE SVT-AV1 GIT CLONE
 
-    cargo install ab-av1;                                                                                     # INSTALL AB-AV1 VIA CARGO
+    cargo install ab-av1;                               # INSTALL AB-AV1 VIA CARGO
 
     Read-Host -Prompt "`n`nINSTALLATION DONE! Launch by typing [ab-av1] directly.`nFor more info on how to use, do refer to this doc [https://alexheretic.github.io/posts/ab-av1/].`n`nThank you for using my program! Your support is very valuable for me.`n`nPress [ENTER] to exit installer...";
 }
