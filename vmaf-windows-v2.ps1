@@ -23,7 +23,7 @@ function prereq {
 
     # GIVING INSTRUCTIONS TO USER
     Clear-Host;
-    Write-Host "Installation has completed. A new Windows Terminal window will open after this. I want you to:`n";
+    Write-Host "Installation has completed. A new Windows Terminal window will open after this. I want you to:`n1. COPY this command NOW!!! [iwr https://rebrand.ly/vmafeasywin | iex] (exclude the square bracket)`n2. PASTE it onto the new terminal window that will open later.";
     Pause;
 
     wt; exit; # LAUNCH A NEW WINDOWS TERMINAL, AND EXIT THE CURRENT WT (BCOS SHELL RESTART IS REQUIRED)
