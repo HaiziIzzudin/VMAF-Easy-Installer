@@ -1,3 +1,2 @@
 cd ~/;
 source .bashrc;
-pwsh;
