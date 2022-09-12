@@ -13,7 +13,7 @@ sudo apt update && sudo apt install -y curl gnupg apt-transport-https;curl https
 iwr rebrand.ly/vmafeasywin | iex
 ```
 
-## 1.2 Install for Windows (10 and above - POWERSHELL)
+## 1.2 Install for Windows 10 and above (WINDOWS TERMINAL - POWERSHELL)
 
 *Some action still require user interaction, so don't leave the command running. We need you.*
 
