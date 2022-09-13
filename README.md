@@ -3,7 +3,8 @@
 ## 1.1 - Install for Linux (UBUNTU 2004/2204 - BASH)
 
 1. If you are a first time user (or you formatted your Linux PC), you need to INSTALL PowerShell. Enter in below command into terminal. 
-Else if you already has installed PowerShell (or you are a comeback customer), SKIP THIS STEP.
+
+   Else if you already has installed PowerShell (or you are a comeback customer), SKIP THIS STEP.
 ```
 sudo apt update;sudo apt upgrade -y;sudo apt install -y curl gnupg apt-transport-https;curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -;sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-debian-bullseye-prod bullseye main" > /etc/apt/sources.list.d/microsoft.list';sudo apt update && sudo apt install -y powershell;
 ```
