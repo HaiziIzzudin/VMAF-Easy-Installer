@@ -71,11 +71,10 @@ else { # IF PLATFORM = LINUX
     ~/SVT-AV1/Build/linux/build.sh release;                             # START BUILD SVTAV1ENCAPP
     Move-Item -Path ~/SVT-AV1/Bin/Release/SvtAv1EncApp -Destination ./; # TAKEOUT SVTAV1ENCAPP TO PATH/HOME 
     Remove-Item "~/SVT-AV1" -Recurse -Force;                            # REMOVE SVT-AV1 GIT CLONE
+    sudo chmod u+x SvtAv1EncApp;                                        # SET PERMISSION TO EXECUTABLE
 
     Add-Content -Path ./.bashrc -Value '';
-    Add-Content -Path ./.bashrc -Value 'export PATH=~/:$PATH';          # ADD CONTENT TO BASHRC 
-    
-    bash -c "$(curl -fsSL https://github.com/HaiziIzzudin/AV1-VMAF-Easy-Installer/raw/main/reload-bashrc.sh)"; # RELOAD BASHRC & INSTALL AB-AV1
+    Add-Content -Path ./.bashrc -Value 'export PATH=~/:$PATH';          # ADD CONTENT TO BASHRC
 
     exit;                                                               # EXIT POWERSHELL
 }
