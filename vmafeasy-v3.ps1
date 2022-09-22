@@ -12,7 +12,7 @@ if ($platform -eq "WINDOWS") {
         (Test-Path -Path "~\AppData\Local\Microsoft\WindowsApps\ffmpeg.exe") -and (Test-Path -Path "~\AppData\Local\Microsoft\WindowsApps\ffprobe.exe") -and
         (Test-Path -Path "C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\devenv.exe")) -eq $false) {
     
-        Read-Host -Prompt "PREREQUISITES IS NOT INSTALLED! Press [ENTER] to begin installation"; Pause; Clear-Host;
+        Read-Host -Prompt "PREREQUISITES IS NOT INSTALLED! Press [ENTER] to begin installation"; Clear-Host;
     
         Set-Location ~\AppData\Local\Microsoft\WindowsApps; # CD TO PATH
 
@@ -30,9 +30,7 @@ if ($platform -eq "WINDOWS") {
         winget install Git.Git; winget install Rustlang.Rustup; winget install Kitware.CMake;                          # WINGETS
 
         # GIVING INSTRUCTIONS TO USER
-        Clear-Host; Write-Host "Installation has completed. A new Windows Terminal window will open after this. I want you to:`n1. COPY this command NOW!!! [iwr https://rebrand.ly/vmafeasywin | iex] (exclude the square bracket)`n2. PASTE it onto the new terminal window that will open later."; Pause;
-
-        wt; exit; # LAUNCH A NEW WINDOWS TERMINAL, AND EXIT THE CURRENT WT (BCOS SHELL RESTART IS REQUIRED)
+        Clear-Host; Write-Host "Installation has completed. A reboot is required for be able to run this program."; Pause; exit; # EXIT WT (BCOS WINDOWS RESTART IS REQUIRED)
         }
     else {
         Write-Host "PREREQUISITES IS COMPLETE!"; Pause;
