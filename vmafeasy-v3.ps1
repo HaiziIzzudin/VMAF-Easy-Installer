@@ -14,12 +14,12 @@ if ($platform -eq "WINDOWS") {
         Set-Location ~\AppData\Local\Microsoft\WindowsApps; # CD TO PATH
 
         Invoke-WebRequest -Uri https://github.com/BtbN/FFmpeg-Builds/releases/download/latest/ffmpeg-master-latest-win64-gpl.zip -OutFile .\ffmpeg.zip;
-        Expand-Archive -LiteralPath ".\ffmpeg.zip" -DestinationPath ".\";                 # DOWNLOAD & EXTRACT FFMPEG
-        Move-Item -Path .\ffmpeg-master-latest-win64-gpl\bin\ffmpeg.exe -Destination .\;  # TAKEOUT FFMPEG.EXE TO PATH
-        Move-Item -Path .\ffmpeg-master-latest-win64-gpl\bin\ffprobe.exe -Destination .\; # TAKEOUT FFPROBE.EXE TO PATH
-        Remove-Item ".\ffmpeg.zip" -Recurse -Force;                                       # REMOVE FFMPEG ZIP
-        Remove-Item ".\ffmpeg-master-latest-win64-gpl\" -Recurse -Force;                  # REMOVE FFMPEG-MASTER FOLDER
-        winget install Rustlang.Rustup;                                                   # WINGETS
+        Expand-Archive -LiteralPath ".\ffmpeg.zip" -DestinationPath ".\";                     # DOWNLOAD & EXTRACT FFMPEG
+        Move-Item -Path .\ffmpeg-master-latest-win64-gpl\bin\ffmpeg.exe -Destination .\;      # TAKEOUT FFMPEG.EXE TO PATH
+        Move-Item -Path .\ffmpeg-master-latest-win64-gpl\bin\ffprobe.exe -Destination .\;     # TAKEOUT FFPROBE.EXE TO PATH
+        Remove-Item ".\ffmpeg.zip" -Recurse -Force;                                           # REMOVE FFMPEG ZIP
+        Remove-Item ".\ffmpeg-master-latest-win64-gpl\" -Recurse -Force;                      # REMOVE FFMPEG-MASTER FOLDER
+        winget install Rustlang.Rustup; winget install Microsoft.VisualStudio.2022.Community; # WINGETS
 
         # GIVING INSTRUCTIONS TO USER
         Clear-Host; Write-Host "Installation has completed. A reboot is required for be able to run this program."; Pause; exit; # EXIT WT (BCOS WINDOWS RESTART IS REQUIRED)
