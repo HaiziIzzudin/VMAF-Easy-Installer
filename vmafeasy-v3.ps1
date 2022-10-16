@@ -39,22 +39,15 @@ else { # IF PLATFORM = LINUX
         sudo add-apt-repository ppa:savoury1/ffmpeg4 -y; # ADDING PPA:SAVOURY FFMPEG 4
         sudo add-apt-repository ppa:savoury1/ffmpeg5 -y; # ADDING PPA:SAVOURY FFMPEG 5
         curl https://sh.rustup.rs -sSf | sh;             # INSTALL RUSTUP CARGO
-        touch ~/.vmafav1softwareidentifier;              # SOFTWARE IDENTIFIER (DO NOT DELETE)
+        touch ~/.vmafav1softwareidentifier;              # SOFTWARE IDENTIFIER (DO NOT DELETE, OR DELETE TO RENEW FFMPEG )
     }
-    sudo apt update; sudo apt upgrade -y; sudo apt install ffmpeg gcc cmake yasm clang -y;
+    sudo apt update; sudo apt upgrade -y; sudo apt install ffmpeg -y;
     
     Write-Host "`nPREREQUISITES INSTALL HAS COMPLETED!`n`n"; Pause; Clear-Host;
     
-    # PREPARATION OF SVTAV1ENCAPP BUILDER
     Set-Location ~/;                                                    # CHANGE LOCATION TO HOME
-    git clone https://gitlab.com/AOMediaCodec/SVT-AV1.git ;             # CLONE SVTAV1 REPO
-    ~/SVT-AV1/Build/linux/build.sh release;                             # START BUILD SVTAV1ENCAPP
-    Move-Item -Path ~/SVT-AV1/Bin/Release/SvtAv1EncApp -Destination ./; # TAKEOUT SVTAV1ENCAPP TO PATH/HOME 
-    Remove-Item "~/SVT-AV1" -Recurse -Force;                            # REMOVE SVT-AV1 GIT CLONE
-    sudo chmod u+x SvtAv1EncApp;                                        # SET PERMISSION TO EXECUTABLE
-
     Add-Content -Path ./.bashrc -Value '';
-    Add-Content -Path ./.bashrc -Value 'export PATH=~/:$PATH';          # ADD CONTENT TO BASHRC
+    Add-Content -Path ./.bashrc -Value 'export PATH=~/:$PATH';          # ADD /HOME/USER TO PATH
 
     exit;                                                               # EXIT POWERSHELL
 }
