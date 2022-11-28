@@ -8,10 +8,13 @@ Clear-Host; Write-Host "VMAF SUPER EASY INSTALLER FEAT. SVT-AV1 - YOUR PLATFORM 
 
 if ($platform -eq "WINDOWS") {
     if (((Test-Path -Path "~\AppData\Local\Microsoft\WindowsApps\ffmpeg.exe") -and (Test-Path -Path "~\AppData\Local\Microsoft\WindowsApps\ffprobe.exe") -and (Test-Path -Path "~\AppData\Local\Microsoft\WindowsApps\ab-av1.exe")) -eq $false) {
-    
-        Read-Host -Prompt "PREREQUISITES IS NOT INSTALLED! Press [ENTER] to begin installation"; Clear-Host;
-    
+        
         Set-Location ~\AppData\Local\Microsoft\WindowsApps; # CD TO PATH
+        
+        if ((Test-Path -Path ".\ffmpeg.exe") -eq $True) { Remove-Item ".\ffmpeg.exe" -Recurse -Force }
+        if ((Test-Path -Path ".\ffprobe.exe") -eq $True) { Remove-Item ".\ffprobe.exe" -Recurse -Force } 
+
+        Write-Host "PREREQUISITES IS NOT INSTALLED! Press [ENTER] to begin installation"; Pause; Clear-Host;
 
         Invoke-WebRequest -Uri https://github.com/BtbN/FFmpeg-Builds/releases/download/latest/ffmpeg-master-latest-win64-gpl.zip -OutFile .\ffmpeg.zip;
         Expand-Archive -LiteralPath ".\ffmpeg.zip" -DestinationPath ".\";                           # DOWNLOAD & EXTRACT FFMPEG
