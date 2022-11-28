@@ -7,7 +7,7 @@ else { $platform = "LINUX"; }
 Clear-Host; Write-Host "VMAF SUPER EASY INSTALLER FEAT. SVT-AV1 - YOUR PLATFORM IS $platform`nThis program will help you install and get VMAF up and running with minimal clicks and interactions.`n`nLet's check prerequisites first...`n`n";
 
 if ($platform -eq "WINDOWS") {
-    if (((Test-Path -Path "~\AppData\Local\Microsoft\WindowsApps\ffmpeg.exe") -and (Test-Path -Path "~\AppData\Local\Microsoft\WindowsApps\ffprobe.exe")) -and (Test-Path -Path "~\AppData\Local\Microsoft\WindowsApps\ab-av1.exe") -eq $false) {
+    if (((Test-Path -Path "~\AppData\Local\Microsoft\WindowsApps\ffmpeg.exe") -and (Test-Path -Path "~\AppData\Local\Microsoft\WindowsApps\ffprobe.exe") -and (Test-Path -Path "~\AppData\Local\Microsoft\WindowsApps\ab-av1.exe")) -eq $false) {
     
         Read-Host -Prompt "PREREQUISITES IS NOT INSTALLED! Press [ENTER] to begin installation"; Clear-Host;
     
