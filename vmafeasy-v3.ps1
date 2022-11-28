@@ -22,7 +22,7 @@ if ($platform -eq "WINDOWS") {
         Move-Item -Path .\ffmpeg-master-latest-win64-gpl\bin\ffprobe.exe -Destination .\;           # TAKEOUT FFPROBE.EXE TO PATH
         Remove-Item ".\ffmpeg.zip" -Recurse -Force;                                                 # REMOVE FFMPEG ZIP
         Remove-Item ".\ffmpeg-master-latest-win64-gpl\" -Recurse -Force;                            # REMOVE FFMPEG-MASTER FOLDER
-        Invoke-WebRequest -Uri github.com/alexheretic/ab-av1/releases/download/v0.5.0/ab-av1.exe    # DOWNLOAD AB-AV1 PRE-BUILT FROM RELEASES
+        Invoke-WebRequest -Uri https://github.com/alexheretic/ab-av1/releases/download/v0.5.0/ab-av1.exe    # DOWNLOAD AB-AV1 PRE-BUILT FROM RELEASES
         }
     else {
         Write-Host "PREREQUISITES IS COMPLETE!`n`nYou can start using ab-av1 now. If you have no clue to start. Press enter to continue. Otherwise, you can exit this window."; Pause; iwr https://github.com/HaiziIzzudin/Code_Scraps/raw/main/abav1_configurados.ps1 | iex;
