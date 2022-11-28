@@ -24,8 +24,6 @@ cargo install ab-av1;
 
 ## 1.2 Install for Windows 10 and above (WINDOWS TERMINAL - POWERSHELL)
 
-*Some action still require user interaction, so don't leave the command running. We need you.*
-
 1. Copy the command below:
 ```
 iwr rebrand.ly/vmafeasywin | iex
