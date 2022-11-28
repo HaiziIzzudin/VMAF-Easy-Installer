@@ -6,8 +6,6 @@ if ((Test-Path -Path ".\ffmpeg.exe") -eq $True) { Remove-Item ".\ffmpeg.exe" -Re
 if ((Test-Path -Path ".\ffprobe.exe") -eq $True) { Remove-Item ".\ffprobe.exe" -Recurse -Force }
 if ((Test-Path -Path ".\ab-av1.exe") -eq $True) { Remove-Item ".\ab-av1.exe" -Recurse -Force }
 
-Write-Host "PREREQUISITES IS NOT INSTALLED! Press [ENTER] to begin installation"; Pause; Clear-Host;
-
 Invoke-WebRequest -Uri https://github.com/BtbN/FFmpeg-Builds/releases/download/latest/ffmpeg-master-latest-win64-gpl.zip -OutFile .\ffmpeg.zip;
 Expand-Archive -LiteralPath ".\ffmpeg.zip" -DestinationPath ".\";                                                       # DOWNLOAD & EXTRACT FFMPEG
 Move-Item -Path .\ffmpeg-master-latest-win64-gpl\bin\ffmpeg.exe -Destination .\;                                        # TAKEOUT FFMPEG.EXE TO PATH
