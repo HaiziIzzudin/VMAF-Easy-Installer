@@ -7,29 +7,22 @@ else { $platform = "LINUX"; }
 Clear-Host; Write-Host "VMAF SUPER EASY INSTALLER FEAT. SVT-AV1 - YOUR PLATFORM IS $platform`nThis program will help you install and get VMAF up and running with minimal clicks and interactions.`n`nLet's check prerequisites first...`n`n";
 
 if ($platform -eq "WINDOWS") {
-    if (((Test-Path -Path "~\.cargo\bin\cargo.exe") -and (Test-Path -Path "~\AppData\Local\Microsoft\WindowsApps\ffmpeg.exe") -and (Test-Path -Path "~\AppData\Local\Microsoft\WindowsApps\ffprobe.exe")) -eq $false) {
+    if (((Test-Path -Path "~\AppData\Local\Microsoft\WindowsApps\ffmpeg.exe") -and (Test-Path -Path "~\AppData\Local\Microsoft\WindowsApps\ffprobe.exe")) -and (Test-Path -Path "~\AppData\Local\Microsoft\WindowsApps\ab-av1.exe") -eq $false) {
     
         Read-Host -Prompt "PREREQUISITES IS NOT INSTALLED! Press [ENTER] to begin installation"; Clear-Host;
     
         Set-Location ~\AppData\Local\Microsoft\WindowsApps; # CD TO PATH
 
         Invoke-WebRequest -Uri https://github.com/BtbN/FFmpeg-Builds/releases/download/latest/ffmpeg-master-latest-win64-gpl.zip -OutFile .\ffmpeg.zip;
-        Expand-Archive -LiteralPath ".\ffmpeg.zip" -DestinationPath ".\";                     # DOWNLOAD & EXTRACT FFMPEG
-        Move-Item -Path .\ffmpeg-master-latest-win64-gpl\bin\ffmpeg.exe -Destination .\;      # TAKEOUT FFMPEG.EXE TO PATH
-        Move-Item -Path .\ffmpeg-master-latest-win64-gpl\bin\ffprobe.exe -Destination .\;     # TAKEOUT FFPROBE.EXE TO PATH
-        Remove-Item ".\ffmpeg.zip" -Recurse -Force;                                           # REMOVE FFMPEG ZIP
-        Remove-Item ".\ffmpeg-master-latest-win64-gpl\" -Recurse -Force;                      # REMOVE FFMPEG-MASTER FOLDER
-        winget install Rustlang.Rustup; winget install Microsoft.VisualStudio.2022.Community; # WINGETS
-
-        # GIVING INSTRUCTIONS TO USER
-        Clear-Host; Write-Host "Installation has completed. A reboot is required for be able to run this program."; Pause; exit; # EXIT WT (BCOS WINDOWS RESTART IS REQUIRED)
+        Expand-Archive -LiteralPath ".\ffmpeg.zip" -DestinationPath ".\";                           # DOWNLOAD & EXTRACT FFMPEG
+        Move-Item -Path .\ffmpeg-master-latest-win64-gpl\bin\ffmpeg.exe -Destination .\;            # TAKEOUT FFMPEG.EXE TO PATH
+        Move-Item -Path .\ffmpeg-master-latest-win64-gpl\bin\ffprobe.exe -Destination .\;           # TAKEOUT FFPROBE.EXE TO PATH
+        Remove-Item ".\ffmpeg.zip" -Recurse -Force;                                                 # REMOVE FFMPEG ZIP
+        Remove-Item ".\ffmpeg-master-latest-win64-gpl\" -Recurse -Force;                            # REMOVE FFMPEG-MASTER FOLDER
+        Invoke-WebRequest -Uri github.com/alexheretic/ab-av1/releases/download/v0.5.0/ab-av1.exe    # DOWNLOAD AB-AV1 PRE-BUILT FROM RELEASES
         }
     else {
-        Write-Host "PREREQUISITES IS COMPLETE!"; Pause;
-
-        cargo install ab-av1;                                                             # INSTALL AB-AV1 VIA CARGO
-
-        Read-Host -Prompt "`n`nINSTALLATION DONE! Launch by typing [ab-av1] directly.`nTo start a wizard, enter in [iwr https://github.com/HaiziIzzudin/Code_Scraps/raw/main/abav1_configurados.ps1 | iex] on a new terminal environment.`n`nThank you for using my program! Your support is very valuable for me.`n`nPress [ENTER] to exit installer...";
+        Write-Host "PREREQUISITES IS COMPLETE!`n`nYou can start using ab-av1 now. If you have no clue to start. Press enter to continue. Otherwise, you can exit this window."; Pause; iwr https://github.com/HaiziIzzudin/Code_Scraps/raw/main/abav1_configurados.ps1 | iex;
     }
 }
 else { # IF PLATFORM = LINUX
